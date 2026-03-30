@@ -1,0 +1,47 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            Int      @id @default(autoincrement())
+  email         String   @unique
+  password      String
+  createdAt     DateTime @default(now())
+  contactNumber String?
+  fullname      String
+  items         Item[]
+}
+
+model Item {
+  id            Int       @id @default(autoincrement())
+  title         String
+  description   String?
+  type          String
+  category      String
+  location      String
+  date          DateTime?
+  photoUrl      String?
+  status        String    @default("open")
+  userId        Int
+  createdAt     DateTime  @default(now())
+  timeFoundLost String?
+  user          User      @relation(fields: [userId], references: [id])
+}
+
+model LostItem {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String
+  category    String
+  location    String
+  date        DateTime
+  photoUrl    String? // Store the image link here
+  createdAt   DateTime @default(now())
+  userId      Int // To track which user reported it
+}
