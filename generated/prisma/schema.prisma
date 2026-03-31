@@ -19,19 +19,20 @@ model User {
 }
 
 model Item {
-  id            Int       @id @default(autoincrement())
+  id            Int      @id @default(autoincrement())
   title         String
   description   String?
   type          String
   category      String
   location      String
-  date          DateTime?
+  date          DateTime
+  contactInfo   String
   photoUrl      String?
-  status        String    @default("open")
+  status        String   @default("open")
   userId        Int
-  createdAt     DateTime  @default(now())
+  createdAt     DateTime @default(now())
   timeFoundLost String?
-  user          User      @relation(fields: [userId], references: [id])
+  user          User     @relation(fields: [userId], references: [id])
 }
 
 model LostItem {

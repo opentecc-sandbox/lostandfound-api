@@ -2220,6 +2220,7 @@ export namespace Prisma {
     category: string | null
     location: string | null
     date: Date | null
+    contactInfo: string | null
     photoUrl: string | null
     status: string | null
     userId: number | null
@@ -2235,6 +2236,7 @@ export namespace Prisma {
     category: string | null
     location: string | null
     date: Date | null
+    contactInfo: string | null
     photoUrl: string | null
     status: string | null
     userId: number | null
@@ -2250,6 +2252,7 @@ export namespace Prisma {
     category: number
     location: number
     date: number
+    contactInfo: number
     photoUrl: number
     status: number
     userId: number
@@ -2277,6 +2280,7 @@ export namespace Prisma {
     category?: true
     location?: true
     date?: true
+    contactInfo?: true
     photoUrl?: true
     status?: true
     userId?: true
@@ -2292,6 +2296,7 @@ export namespace Prisma {
     category?: true
     location?: true
     date?: true
+    contactInfo?: true
     photoUrl?: true
     status?: true
     userId?: true
@@ -2307,6 +2312,7 @@ export namespace Prisma {
     category?: true
     location?: true
     date?: true
+    contactInfo?: true
     photoUrl?: true
     status?: true
     userId?: true
@@ -2408,7 +2414,8 @@ export namespace Prisma {
     type: string
     category: string
     location: string
-    date: Date | null
+    date: Date
+    contactInfo: string
     photoUrl: string | null
     status: string
     userId: number
@@ -2443,6 +2450,7 @@ export namespace Prisma {
     category?: boolean
     location?: boolean
     date?: boolean
+    contactInfo?: boolean
     photoUrl?: boolean
     status?: boolean
     userId?: boolean
@@ -2459,6 +2467,7 @@ export namespace Prisma {
     category?: boolean
     location?: boolean
     date?: boolean
+    contactInfo?: boolean
     photoUrl?: boolean
     status?: boolean
     userId?: boolean
@@ -2475,6 +2484,7 @@ export namespace Prisma {
     category?: boolean
     location?: boolean
     date?: boolean
+    contactInfo?: boolean
     photoUrl?: boolean
     status?: boolean
     userId?: boolean
@@ -2491,6 +2501,7 @@ export namespace Prisma {
     category?: boolean
     location?: boolean
     date?: boolean
+    contactInfo?: boolean
     photoUrl?: boolean
     status?: boolean
     userId?: boolean
@@ -2498,7 +2509,7 @@ export namespace Prisma {
     timeFoundLost?: boolean
   }
 
-  export type ItemOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "type" | "category" | "location" | "date" | "photoUrl" | "status" | "userId" | "createdAt" | "timeFoundLost", ExtArgs["result"]["item"]>
+  export type ItemOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "type" | "category" | "location" | "date" | "contactInfo" | "photoUrl" | "status" | "userId" | "createdAt" | "timeFoundLost", ExtArgs["result"]["item"]>
   export type ItemInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
   }
@@ -2521,7 +2532,8 @@ export namespace Prisma {
       type: string
       category: string
       location: string
-      date: Date | null
+      date: Date
+      contactInfo: string
       photoUrl: string | null
       status: string
       userId: number
@@ -2958,6 +2970,7 @@ export namespace Prisma {
     readonly category: FieldRef<"Item", 'String'>
     readonly location: FieldRef<"Item", 'String'>
     readonly date: FieldRef<"Item", 'DateTime'>
+    readonly contactInfo: FieldRef<"Item", 'String'>
     readonly photoUrl: FieldRef<"Item", 'String'>
     readonly status: FieldRef<"Item", 'String'>
     readonly userId: FieldRef<"Item", 'Int'>
@@ -4496,6 +4509,7 @@ export namespace Prisma {
     category: 'category',
     location: 'location',
     date: 'date',
+    contactInfo: 'contactInfo',
     photoUrl: 'photoUrl',
     status: 'status',
     userId: 'userId',
@@ -4681,7 +4695,8 @@ export namespace Prisma {
     type?: StringFilter<"Item"> | string
     category?: StringFilter<"Item"> | string
     location?: StringFilter<"Item"> | string
-    date?: DateTimeNullableFilter<"Item"> | Date | string | null
+    date?: DateTimeFilter<"Item"> | Date | string
+    contactInfo?: StringFilter<"Item"> | string
     photoUrl?: StringNullableFilter<"Item"> | string | null
     status?: StringFilter<"Item"> | string
     userId?: IntFilter<"Item"> | number
@@ -4697,7 +4712,8 @@ export namespace Prisma {
     type?: SortOrder
     category?: SortOrder
     location?: SortOrder
-    date?: SortOrderInput | SortOrder
+    date?: SortOrder
+    contactInfo?: SortOrder
     photoUrl?: SortOrderInput | SortOrder
     status?: SortOrder
     userId?: SortOrder
@@ -4716,7 +4732,8 @@ export namespace Prisma {
     type?: StringFilter<"Item"> | string
     category?: StringFilter<"Item"> | string
     location?: StringFilter<"Item"> | string
-    date?: DateTimeNullableFilter<"Item"> | Date | string | null
+    date?: DateTimeFilter<"Item"> | Date | string
+    contactInfo?: StringFilter<"Item"> | string
     photoUrl?: StringNullableFilter<"Item"> | string | null
     status?: StringFilter<"Item"> | string
     userId?: IntFilter<"Item"> | number
@@ -4732,7 +4749,8 @@ export namespace Prisma {
     type?: SortOrder
     category?: SortOrder
     location?: SortOrder
-    date?: SortOrderInput | SortOrder
+    date?: SortOrder
+    contactInfo?: SortOrder
     photoUrl?: SortOrderInput | SortOrder
     status?: SortOrder
     userId?: SortOrder
@@ -4755,7 +4773,8 @@ export namespace Prisma {
     type?: StringWithAggregatesFilter<"Item"> | string
     category?: StringWithAggregatesFilter<"Item"> | string
     location?: StringWithAggregatesFilter<"Item"> | string
-    date?: DateTimeNullableWithAggregatesFilter<"Item"> | Date | string | null
+    date?: DateTimeWithAggregatesFilter<"Item"> | Date | string
+    contactInfo?: StringWithAggregatesFilter<"Item"> | string
     photoUrl?: StringNullableWithAggregatesFilter<"Item"> | string | null
     status?: StringWithAggregatesFilter<"Item"> | string
     userId?: IntWithAggregatesFilter<"Item"> | number
@@ -4907,7 +4926,8 @@ export namespace Prisma {
     type: string
     category: string
     location: string
-    date?: Date | string | null
+    date: Date | string
+    contactInfo: string
     photoUrl?: string | null
     status?: string
     createdAt?: Date | string
@@ -4922,7 +4942,8 @@ export namespace Prisma {
     type: string
     category: string
     location: string
-    date?: Date | string | null
+    date: Date | string
+    contactInfo: string
     photoUrl?: string | null
     status?: string
     userId: number
@@ -4936,7 +4957,8 @@ export namespace Prisma {
     type?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     location?: StringFieldUpdateOperationsInput | string
-    date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    contactInfo?: StringFieldUpdateOperationsInput | string
     photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -4951,7 +4973,8 @@ export namespace Prisma {
     type?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     location?: StringFieldUpdateOperationsInput | string
-    date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    contactInfo?: StringFieldUpdateOperationsInput | string
     photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
     userId?: IntFieldUpdateOperationsInput | number
@@ -4966,7 +4989,8 @@ export namespace Prisma {
     type: string
     category: string
     location: string
-    date?: Date | string | null
+    date: Date | string
+    contactInfo: string
     photoUrl?: string | null
     status?: string
     userId: number
@@ -4980,7 +5004,8 @@ export namespace Prisma {
     type?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     location?: StringFieldUpdateOperationsInput | string
-    date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    contactInfo?: StringFieldUpdateOperationsInput | string
     photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -4994,7 +5019,8 @@ export namespace Prisma {
     type?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     location?: StringFieldUpdateOperationsInput | string
-    date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    contactInfo?: StringFieldUpdateOperationsInput | string
     photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
     userId?: IntFieldUpdateOperationsInput | number
@@ -5251,17 +5277,6 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
-  export type DateTimeNullableFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
-  }
-
   export type UserScalarRelationFilter = {
     is?: UserWhereInput
     isNot?: UserWhereInput
@@ -5275,6 +5290,7 @@ export namespace Prisma {
     category?: SortOrder
     location?: SortOrder
     date?: SortOrder
+    contactInfo?: SortOrder
     photoUrl?: SortOrder
     status?: SortOrder
     userId?: SortOrder
@@ -5295,6 +5311,7 @@ export namespace Prisma {
     category?: SortOrder
     location?: SortOrder
     date?: SortOrder
+    contactInfo?: SortOrder
     photoUrl?: SortOrder
     status?: SortOrder
     userId?: SortOrder
@@ -5310,6 +5327,7 @@ export namespace Prisma {
     category?: SortOrder
     location?: SortOrder
     date?: SortOrder
+    contactInfo?: SortOrder
     photoUrl?: SortOrder
     status?: SortOrder
     userId?: SortOrder
@@ -5320,20 +5338,6 @@ export namespace Prisma {
   export type ItemSumOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
-  }
-
-  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedDateTimeNullableFilter<$PrismaModel>
-    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type LostItemCountOrderByAggregateInput = {
@@ -5448,10 +5452,6 @@ export namespace Prisma {
     create?: XOR<UserCreateWithoutItemsInput, UserUncheckedCreateWithoutItemsInput>
     connectOrCreate?: UserCreateOrConnectWithoutItemsInput
     connect?: UserWhereUniqueInput
-  }
-
-  export type NullableDateTimeFieldUpdateOperationsInput = {
-    set?: Date | string | null
   }
 
   export type UserUpdateOneRequiredWithoutItemsNestedInput = {
@@ -5598,38 +5598,14 @@ export namespace Prisma {
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
-  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
-  }
-
-  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedDateTimeNullableFilter<$PrismaModel>
-    _max?: NestedDateTimeNullableFilter<$PrismaModel>
-  }
-
   export type ItemCreateWithoutUserInput = {
     title: string
     description?: string | null
     type: string
     category: string
     location: string
-    date?: Date | string | null
+    date: Date | string
+    contactInfo: string
     photoUrl?: string | null
     status?: string
     createdAt?: Date | string
@@ -5643,7 +5619,8 @@ export namespace Prisma {
     type: string
     category: string
     location: string
-    date?: Date | string | null
+    date: Date | string
+    contactInfo: string
     photoUrl?: string | null
     status?: string
     createdAt?: Date | string
@@ -5686,7 +5663,8 @@ export namespace Prisma {
     type?: StringFilter<"Item"> | string
     category?: StringFilter<"Item"> | string
     location?: StringFilter<"Item"> | string
-    date?: DateTimeNullableFilter<"Item"> | Date | string | null
+    date?: DateTimeFilter<"Item"> | Date | string
+    contactInfo?: StringFilter<"Item"> | string
     photoUrl?: StringNullableFilter<"Item"> | string | null
     status?: StringFilter<"Item"> | string
     userId?: IntFilter<"Item"> | number
@@ -5751,7 +5729,8 @@ export namespace Prisma {
     type: string
     category: string
     location: string
-    date?: Date | string | null
+    date: Date | string
+    contactInfo: string
     photoUrl?: string | null
     status?: string
     createdAt?: Date | string
@@ -5764,7 +5743,8 @@ export namespace Prisma {
     type?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     location?: StringFieldUpdateOperationsInput | string
-    date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    contactInfo?: StringFieldUpdateOperationsInput | string
     photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -5778,7 +5758,8 @@ export namespace Prisma {
     type?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     location?: StringFieldUpdateOperationsInput | string
-    date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    contactInfo?: StringFieldUpdateOperationsInput | string
     photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -5792,7 +5773,8 @@ export namespace Prisma {
     type?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     location?: StringFieldUpdateOperationsInput | string
-    date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    contactInfo?: StringFieldUpdateOperationsInput | string
     photoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
