@@ -26,7 +26,7 @@ router.get("/", async (req, res) => {
 
 // 2. POST NEW ITEM (Report Lost/Found)
 router.post("/", async (req, res) => {
-  const { title, description, category, location, type, date, userId, photoUrl } = req.body;
+  const { title, description, category, location, type, date, contactInfo, photoUrl, userId } = req.body;
 
 
   const parsedUserId = parseInt(userId);
@@ -46,6 +46,7 @@ router.post("/", async (req, res) => {
         location: location || "",
         type, // "LOST" or "FOUND"
         date: date ? new Date(date) : new Date(), 
+        contactInfo,
         userId: parsedUserId,
         photoUrl: photoUrl && photoUrl.trim() !== "" ? photoUrl : null,
         status: "open"
