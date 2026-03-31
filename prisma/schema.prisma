@@ -25,7 +25,8 @@ model Item {
   type          String
   category      String
   location      String
-  date          DateTime?
+  date          DateTime
+  contactInfo   String
   photoUrl      String?
   status        String    @default("open")
   userId        Int
