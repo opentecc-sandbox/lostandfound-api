@@ -1,8 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const { prisma } = require("../lib/prisma"); // T-yqed mn had l'path 3la hsab l'structure dyalk
+const { prisma } = require("../lib/prisma"); 
 
-// 1. GET ALL ITEMS (Browsing)
 router.get("/", async (req, res) => {
   const { type, category } = req.query; 
   try {
@@ -14,7 +13,7 @@ router.get("/", async (req, res) => {
       orderBy: { createdAt: 'desc' },
       include: {
         user: {
-          select: { fullname: true, email: true } // Bach t-biyen smiyt li lqah/wadro
+          select: { fullname: true, email: true } 
         }
       }
     });
@@ -29,7 +28,7 @@ router.get("/", async (req, res) => {
 router.post("/", async (req, res) => {
   const { title, description, category, location, type, date, userId, photoUrl } = req.body;
 
-  // Validation dial l'userId (Convert to Integer)
+
   const parsedUserId = parseInt(userId);
   
   if (isNaN(parsedUserId)) {
@@ -46,7 +45,6 @@ router.post("/", async (req, res) => {
         category,
         location: location || "",
         type, // "LOST" or "FOUND"
-        // Mapping 'date' l'champ li 3ndek f schema
         date: date ? new Date(date) : new Date(), 
         userId: parsedUserId,
         photoUrl: photoUrl && photoUrl.trim() !== "" ? photoUrl : null,
