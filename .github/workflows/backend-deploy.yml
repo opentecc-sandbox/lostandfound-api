@@ -1,7 +1,10 @@
 name: Deploy Backend to Render
+
 on:
   push:
-    branches: [feature/github-actions] # Change this to 'main' after review
+    branches:
+      - main  
+  workflow_dispatch:  
 
 jobs:
   deploy:
@@ -10,5 +13,5 @@ jobs:
       - name: Deploy to Render
         uses: johnbeynon/render-deploy-action@v0.0.8
         with:
-          service-id: ${{ secrets.RENDER_SERVICE_ID }} 
-          api-key: ${{ secrets.RENDER_API_KEY }}       
+          service-id: ${{ secrets.RENDER_SERVICE_ID }}
+          api-key: ${{ secrets.RENDER_API_KEY }}
