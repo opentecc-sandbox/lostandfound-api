@@ -9,7 +9,6 @@ const PORT = process.env.PORT || 5000;
 const allowedOrigins = [
   "http://localhost:5173", 
   "https://lostfound-portal.netlify.app", 
-  process.env.FRONTEND_URL
 ];
 app.use(cors({
   origin: function (origin, callback) {
