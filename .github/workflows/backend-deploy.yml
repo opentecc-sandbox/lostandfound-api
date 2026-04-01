@@ -1,0 +1,14 @@
+name: Deploy Backend to Render
+on:
+  push:
+    branches: [feature/github-actions] # Change this to 'main' after review
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to Render
+        uses: johnbeynon/render-deploy-action@v0.0.8
+        with:
+          service-id: ${{ secrets.RENDER_SERVICE_ID }} # You get this from Render
+          api-key: ${{ secrets.RENDER_API_KEY }}       # You get this from Render
